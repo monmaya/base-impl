@@ -1,5 +1,5 @@
-Data-related referential management service - Specifications
-============================================================
+Data-related referential management service - Base implementation
+=================================================================
 
 # Table of Content (ToC)
 * [Overview](#overview)
