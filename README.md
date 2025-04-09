@@ -7,7 +7,7 @@ This project provides a RESTful API service with OpenAPI documentation.
 
 ## Setup
 1. Install dependencies: `pip install -r requirements.txt`
-2. Run the server: `uvicorn main:app --reload`
+2. Run the server: `uvicorn main:app --reload --port 8020`
 
 ## Features
 - Automatic OpenAPI documentation at `/docs`
@@ -15,5 +15,6 @@ This project provides a RESTful API service with OpenAPI documentation.
 - Sample root endpoint
 
 ## Accessing OpenAPI
-- Interactive docs: http://localhost:8000/docs
-- OpenAPI JSON: http://localhost:8000/openapi.json
+- Interactive docs: http://localhost:8020/docs
+- OpenAPI JSON: http://localhost:8020/openapi.json
+
