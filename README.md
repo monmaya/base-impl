@@ -1,5 +1,6 @@
 # base-impl
-Base implementation for the data-related referential management service
+Base implementation for the data-related referential management service:
+https://github.com/monmaya/specifications
 
 # API Service
 
