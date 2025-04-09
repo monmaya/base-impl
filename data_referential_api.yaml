@@ -1,0 +1,150 @@
+openapi: 3.0.0
+info:
+  title: Data Referential Management API
+  description: API for managing data-related objects like data products, contracts, quality specs, etc.
+  version: 1.0.0
+
+servers:
+  - url: https://api.example.com/v1
+    description: Production server
+
+paths:
+  /data-products:
+    get:
+      summary: List all data products
+      responses:
+        '200':
+          description: A list of data products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataProduct'
+    post:
+      summary: Create a new data product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataProduct'
+      responses:
+        '201':
+          description: Data product created
+
+  /data-products/{id}:
+    get:
+      summary: Get a specific data product
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Data product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataProduct'
+
+  /data-contracts:
+    get:
+      summary: List all data contracts
+      responses:
+        '200':
+          description: A list of data contracts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataContract'
+
+  /data-quality-specs:
+    get:
+      summary: List all data quality specifications
+      responses:
+        '200':
+          description: A list of quality specs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataQualitySpec'
+
+components:
+  schemas:
+    DataProduct:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        owner:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    DataContract:
+      type: object
+      properties:
+        id:
+          type: string
+        data_product_id:
+          type: string
+        terms:
+          type: string
+        validity_period:
+          type: object
+          properties:
+            start:
+              type: string
+              format: date-time
+            end:
+              type: string
+              format: date-time
+
+    DataQualitySpec:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/QualityMetric'
+
+    QualityMetric:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        threshold:
+          type: number
+
+    SLO:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        target:
+          type: number
+        period:
+          type: string
