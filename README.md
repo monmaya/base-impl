@@ -34,6 +34,9 @@ they speak on their personal behalf and do not represent these companies.
   * Reader-friendly, dedicated site: https://bitol-io.github.io/open-data-contract-standard/latest/
   * GitHub home page: https://github.com/bitol-io/open-data-contract-standard
 * Innoq's Data Contract specification: https://datacontract.com/
+* [Andrew Jones' Git repository supporting his book about data contracts](https://github.com/PacktPublishing/Driving-Data-Quality-with-Data-Contracts)
+  * [Andrew Jones' Git repository supporting his book about data contracts - Chapter 08: samples of contracts for customer profiles](https://github.com/PacktPublishing/Driving-Data-Quality-with-Data-Contracts/tree/main/Chapter08/contracts)
+  * [Andrew Jones' Git repository supporting his book about data contracts - Chapter 03: samples of contracts for order events](https://github.com/PacktPublishing/Driving-Data-Quality-with-Data-Contracts/blob/main/Chapter03/order_events.yaml)
 
 # Getting started
 This project provides a RESTful API service with OpenAPI documentation.
