@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from typing import List
-from .repositories.postgresql.postgresql_repository import engine, DataProduct, DataContract, DataProductContract
+from .repositories.postgresql.postgresql_repository import engine, DataProduct, DataContract, DataProductContract, DataContractSubscription
 from sqlmodel import select, Session
 
 app = FastAPI()
@@ -28,7 +28,7 @@ def create_data_product(product: DataProduct) -> DataProduct:
 
 
 @app.post("/data-product-contract/")
-def create_product_contract(product_contract: DataProductContract) -> DataProductContract:
+def link_contract_to_product(product_contract: DataProductContract) -> DataProductContract:
     with Session(engine) as session:
         session.add(product_contract)
         session.commit()
@@ -36,16 +36,15 @@ def create_product_contract(product_contract: DataProductContract) -> DataProduc
         return product_contract
 
 
-@app.post("/data-contracts/")
-def create_data_contract(contract: DataContract) -> DataContract:
-    with Session(engine) as session:
-        session.add(contract)
-        session.commit()
-        session.refresh(contract)
-        return contract
-
 @app.get("/data-contracts/")
-def list_data_products() -> List[DataContract]:
+def list_data_contracts() -> List[DataContract]:
     with Session(engine) as session:
         statement = select(DataContract)
         return session.exec(statement).all()
+
+
+@app.get("/data-contracts/{id}/subscriptions/")
+def get_data_contract_subscriptions(id) -> List[DataContractSubscription]:
+    with Session(engine) as session:
+        contract = session.exec(select(DataContract).where(DataContract.id==id)).one()
+        return contract.subscriptions
