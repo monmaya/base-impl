@@ -1,5 +1,3 @@
-from sqlmodel import create_engine
-import os
 from typing import Optional
 from sqlmodel import Field, SQLModel, Relationship
 from datetime import datetime
@@ -57,8 +55,3 @@ class DataContractSubscription(SQLModel, table=True):
     data_contract: Optional["DataContract"] = Relationship(back_populates="subscriptions")
     start_date: datetime = Field(default_factory=datetime.utcnow)
     end_date: Optional[datetime]
-
-
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/data_referential")    
-engine = create_engine(DATABASE_URL) 
-SQLModel.metadata.create_all(engine)

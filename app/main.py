@@ -1,9 +1,16 @@
+import os
 from fastapi import FastAPI
 from typing import List
-from .repositories.postgresql.postgresql_repository import engine, DataProduct, DataContract, DataProductContract, DataContractSubscription
-from sqlmodel import select, Session
+from .repositories.postgresql.model import DataProduct, DataContract, DataProductContract, DataContractSubscription
+from .repositories.postgresql.repository import Repository as PostgresqlRepository
+
 
 app = FastAPI()
+
+
+postgresql_repository = PostgresqlRepository(
+    db_url=os.getenv("DATABASE_URL")
+)
 
 
 @app.get("/")
@@ -13,38 +20,30 @@ def read_root():
 
 @app.get("/data-products/")
 def list_data_products() -> List[DataProduct]:
-    with Session(engine) as session:
-        statement = select(DataProduct)
-        return session.exec(statement).all()
+    return postgresql_repository.get_data_products()
 
 
 @app.post("/data-products/")
 def create_data_product(product: DataProduct) -> DataProduct:
-    with Session(engine) as session:
-        session.add(product)
-        session.commit()
-        session.refresh(product)
-        return product
+    return postgresql_repository.create_data_product(product)
 
 
 @app.post("/data-product-contract/")
 def link_contract_to_product(product_contract: DataProductContract) -> DataProductContract:
-    with Session(engine) as session:
-        session.add(product_contract)
-        session.commit()
-        session.refresh(product_contract)
-        return product_contract
+    return postgresql_repository.link_contract_to_product(product_contract)
 
 
 @app.get("/data-contracts/")
 def list_data_contracts() -> List[DataContract]:
-    with Session(engine) as session:
-        statement = select(DataContract)
-        return session.exec(statement).all()
+    return postgresql_repository.get_data_contracts()
 
 
 @app.get("/data-contracts/{id}/subscriptions/")
 def get_data_contract_subscriptions(id) -> List[DataContractSubscription]:
-    with Session(engine) as session:
-        contract = session.exec(select(DataContract).where(DataContract.id==id)).one()
-        return contract.subscriptions
+    return postgresql_repository.get_contract_subscriptions(contract_id=id)
+
+
+@app.put("/data-contracts/{id}/subscribe/")
+def subscribe_to_data_contract(id, fed_id):
+    return postgresql_repository.subscribe(contract_id=id, fed_id=fed_id)
+
