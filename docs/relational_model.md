@@ -33,9 +33,9 @@ erDiagram
         date end_date 
     }
 
-    DATA_CONTRACT ||--o{ DATA_PRODUCT_CONTRACT : ""
+    DATA_PRODUCT_CONTRACT ||--o{ DATA_CONTRACT : ""
 
-    DATA_CONTRACT_SUBSCRIPTION ||--|| DATA_CONTRACT : ""
+    DATA_CONTRACT ||--|| DATA_CONTRACT_SUBSCRIPTION : ""
 
 
   ```
