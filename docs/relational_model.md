@@ -23,7 +23,7 @@ erDiagram
     DATA_PRODUCT_CONTRACT {
         string data_product_id PK "FK -> DATA_PRODUCT"
         string data_contract_id PK "FK -> DATA_CONTRACT"
-        enum relation_type "['input, 'output']"
+        enum relation_type "['input', 'output']"
     }
 
     DATA_CONTRACT_SUBSCRIPTION {
