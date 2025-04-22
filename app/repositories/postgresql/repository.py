@@ -47,12 +47,12 @@ class Repository():
             return session.exec(statement).all()
 
 
-    def subscribe(self, contract_id, fed_id):
+    def subscribe(self, contract_id, user_id):
         with Session(self.engine) as session:
             contract = session.exec(select(DataContract).where(DataContract.id==contract_id)).one()
             subscription = DataContractSubscription(
                 data_contract=contract,
-                fed_id=fed_id
+                user_id=user_id
             )
             session.add(subscription)
             session.commit()
