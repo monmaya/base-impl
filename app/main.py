@@ -44,6 +44,6 @@ def get_data_contract_subscriptions(id) -> List[DataContractSubscription]:
 
 
 @app.put("/data-contracts/{id}/subscribe/")
-def subscribe_to_data_contract(id, fed_id):
-    return postgresql_repository.subscribe(contract_id=id, fed_id=fed_id)
+def subscribe_to_data_contract(id, user_id):
+    return postgresql_repository.subscribe(contract_id=id, user_id=user_id)
 
