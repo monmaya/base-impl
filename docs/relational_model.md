@@ -27,7 +27,7 @@ erDiagram
     }
 
     DATA_CONTRACT_SUBSCRIPTION {
-        string fed_id PK "FEDID of the subscribed collaborator"
+        string user_id PK "Identifier of the subscriber"
         string data_contract_id PK "FK -> DATA_CONTRACT"
         date start_date
         date end_date 
