@@ -50,7 +50,7 @@ class DataProductContract(SQLModel, table=True):
 
 class DataContractSubscription(SQLModel, table=True):
     __tablename__ = "data_contract_subscription"
-    fed_id: str = Field(primary_key=True)
+    user_id: str = Field(primary_key=True)
     data_contract_id: str = Field(foreign_key="data_contract.id", primary_key=True)
     data_contract: Optional["DataContract"] = Relationship(back_populates="subscriptions")
     start_date: datetime = Field(default_factory=datetime.utcnow)
