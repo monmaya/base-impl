@@ -18,7 +18,7 @@ erDiagram
         string id PK
     }
 
-    DATA_PRODUCT ||--o{ DATA_PRODUCT_CONTRACT : ""
+    DATA_PRODUCT }o--||DATA_PRODUCT_CONTRACT : ""
 
     DATA_PRODUCT_CONTRACT {
         string data_product_id PK "FK -> DATA_PRODUCT"
