@@ -54,16 +54,16 @@ erDiagram
         string team
     }
 
-    CONTRACT_BLOC_1 {
+    CONTRACT_SCHEMA {
         uuid contract_instance_id FK    
     }
-    CONTRACT_BLOC_2 {
+    CONTRACT_QUALITY {
         uuid contract_instance_id FK    
     }
-    CONTRACT_BLOC_3 {
+    CONTRACT_SPECIFICATION {
         uuid contract_instance_id FK    
     }
-    CONTRACT_BLOC_4 {
+    CONTRACT_SLO {
         uuid contract_instance_id FK    
     }
 
@@ -76,10 +76,10 @@ erDiagram
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
     CONTACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (example: data consumer)"
 
-    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_BLOC_1 : "Contract instances"
-    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_BLOC_2 : "Contract instances"
-    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_BLOC_3 : "Contract instances"
-    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_BLOC_4 : "Contract instances"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SCHEMA : "Contract instances"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_QUALITY : "Contract instances"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SPECIFICATION : "Contract instances"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SLO : "Contract instances"
 
 
   ```
