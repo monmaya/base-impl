@@ -50,28 +50,28 @@ erDiagram
         string team
     }
 
-    CONTRACT_SCHEMA {
+    CONTRACT_INSTANCE_SCHEMA {
         uuid id PK    
         string version_number PK "Based on semantic versioning"
         string schema_uri "Link to the schema document"
         timestamp created_at_utc "Creation date"
         timestamp updatd_at_utc "Last modification date"
     }
-    CONTRACT_QUALITY {
+    CONTRACT_INSTANCE_QUALITY {
         uuid id PK    
         string version_number PK "Based on semantic versioning"
         string quality_uri "Link to the quality document"
         timestamp created_at_utc "Creation date"
         timestamp updatd_at_utc "Last modification date"
     }
-    CONTRACT_SPECIFICATION {
+    CONTRACT_INSTANCE_SPECIFICATION {
         uuid id PK    
         string version_number PK "Based on semantic versioning"
         string schema_uri "Link to the specification document"
         timestamp created_at_utc "Creation date"
         timestamp updatd_at_utc "Last modification date"
     }
-    CONTRACT_SLO {
+    CONTRACT_INSTANCE_SLO {
         uuid id PK    
         string version_number PK "Based on semantic versioning"
         string schema_uri "Link to the slo document"
@@ -85,10 +85,10 @@ erDiagram
     PORT ||--o{ DATA_CONTRACT : "Composed of n data contracts"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
 
-    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SCHEMA : "Schema section"
-    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_QUALITY : "Quality section"
-    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SPECIFICATION : "Specification section"
-    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SLO : "SLO section"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_INSTANCE_SCHEMA : "Schema section"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_INSTANCE_QUALITY : "Quality section"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_INSTANCE_SPECIFICATION : "Specification section"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_INSTANCE_SLO : "SLO section"
 
     DATA_CONTRACT_SUBSCRIPTION }o--|| DATA_CONTRACT : ""
     CONTACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (example: data consumer)"
