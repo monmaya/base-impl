@@ -27,15 +27,15 @@ erDiagram
     }
 
     DATA_CONTRACT_INSTANCE {
-        uuid data_contract_id PK, FK "FK -> DATA_CONTRACT"
-        string version_number PK "FK -> DATA_CONTRACT"
+        uuid data_contract_id PK, FK "Ref: DATA_CONTRACT"
+        string version_number PK, FK "Ref: DATA_CONTRACT"
         string ref_standard "Data Contract standard (dcs, odcs, etc.)"
         string contract_uri "Link to this data contract instance"
     }
     
     DATA_CONTRACT_SUBSCRIPTION {
-        uuid user_id PK "FK -> DATA_CONTRACT"
-        uuid data_contract_id PK "FK -> DATA_CONTRACT"
+        uuid user_id PK, FK "Ref: DATA_CONTRACT"
+        uuid data_contract_id PK, FK "Ref: DATA_CONTRACT"
         date start_date_utc "Subscription start date"
         date end_date_utc "Subscription start date"
     }
