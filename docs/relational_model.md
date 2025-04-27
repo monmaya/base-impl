@@ -21,7 +21,8 @@ erDiagram
     }
 
     DATA_CONTRACT {
-        string id PK "Data contract identifier \n(unique when composed with version_number)"
+        string id PK """Data contract identifier
+                            (unique when composed with version_number)"""
         string version_number PK "Based on semantic versioning"
         date created_at_utc "Contract version creation date"
     }
