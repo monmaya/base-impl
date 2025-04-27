@@ -53,28 +53,28 @@ erDiagram
     CONTRACT_INSTANCE_SCHEMA {
         uuid id PK    
         string version_number PK "Based on semantic versioning"
-        string schema_uri "Link to the schema document"
+        json schema "Schema document"
         timestamp created_at_utc "Creation date"
         timestamp updatd_at_utc "Last modification date"
     }
     CONTRACT_INSTANCE_QUALITY {
         uuid id PK    
         string version_number PK "Based on semantic versioning"
-        string quality_uri "Link to the quality document"
+        json quality "Quality document"
         timestamp created_at_utc "Creation date"
         timestamp updatd_at_utc "Last modification date"
     }
     CONTRACT_INSTANCE_SPECIFICATION {
         uuid id PK    
         string version_number PK "Based on semantic versioning"
-        string schema_uri "Link to the specification document"
+        json specification "Specification document"
         timestamp created_at_utc "Creation date"
         timestamp updatd_at_utc "Last modification date"
     }
     CONTRACT_INSTANCE_SLO {
         uuid id PK    
         string version_number PK "Based on semantic versioning"
-        string schema_uri "Link to the slo document"
+        json slo "SLO document"
         timestamp created_at_utc "Creation date"
         timestamp updatd_at_utc "Last modification date"
     }
