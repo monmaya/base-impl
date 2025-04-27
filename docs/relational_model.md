@@ -36,7 +36,10 @@ erDiagram
         uuid contract_instance_id PK
         string version_number UK, FK "Ref: DATA_CONTRACT_VERSION"
         string ref_standard UK "Data Contract standard (dcs, odcs, etc.)"
-        uuid schema_id FK Not null, "Ref: CONTRACT_SCHEMA"
+        uuid schema_id FK "Ref: CONTRACT_SCHEMA"
+        uuid quality_id FK "Ref: CONTRACT_QUALITY"
+        uuid specification_id FK "Ref: CONTRACT_SPECIFICATION"
+        uuid slo_id FK "Ref: CONTRACT_SLO"
     }
     
     DATA_CONTRACT_SUBSCRIPTION {
