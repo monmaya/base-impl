@@ -23,7 +23,7 @@ erDiagram
     DATA_CONTRACT {
         string id PK "Contract identifier (composed with version_number)"
         string version_number PK "Based on semantic versioning"
-        date created_at_utc "Contract version creation date"
+        date created_at_utc "Creation date"
     }
 
     DATA_CONTRACT_INSTANCE {
