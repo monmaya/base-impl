@@ -10,8 +10,8 @@ erDiagram
         uuid id PK "Data product unique identifier"
         string description "Description of the data product"
         uuid contact_id FK "Ref: CONTACT"
-        date created_at_utc "Creation date"
-        date updatd_at_utc "Last modification date"
+        timestamp created_at_utc "Creation date"
+        timestamp updatd_at_utc "Last modification date"
     }
 
     PORT {
@@ -22,8 +22,8 @@ erDiagram
 
     DATA_CONTRACT {
         string id PK "Data Contract unique identifier"
-        date created_at_utc "Creation date"
-        date updatd_at_utc "Last modification date"
+        timestamp created_at_utc "Creation date"
+        timestamp updatd_at_utc "Last modification date"
     }
 
     DATA_CONTRACT_VERSION {
@@ -36,21 +36,30 @@ erDiagram
         string version_number FK "Ref: DATA_CONTRACT_VERSION"
         string ref_standard "Data Contract standard (dcs, odcs, etc.)"
         string contract_uri "Link to this data contract instance"
-        date created_at_utc "Creation date"
-        date updatd_at_utc "Last modification date"
+        timestamp created_at_utc "Creation date"
+        timestamp updatd_at_utc "Last modification date"
     }
     
     DATA_CONTRACT_SUBSCRIPTION {
         uuid data_contract_id PK, FK "Ref: DATA_CONTRACT"
         uuid contact_id PK, FK "Ref: CONTACT"
-        date start_date_utc "Subscription start date"
-        date end_date_utc "Subscription start date"
+        timestamp start_time_utc "Subscription start date"
+        timestamp end_time_utc "Subscription start date"
     }
 
     CONTACT {
         uuid id PK "User unique identifier"
         string email "User email"
         string team
+    }
+
+    EVENT_LOG {
+        uuid id PK "Event unique identifier"
+        enum event_type "'subscribe', 'publish', etc."
+        string data_contract_id FK "Ref: DATA_CONTRACT"
+        uuid contact_id FK "Ref: CONTACT"
+        timestamp event_time_utc "Event time"
+        json details "Event details"
     }
 
     DATA_PRODUCT ||--o{ PORT : "Product delivered in n ports"
