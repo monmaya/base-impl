@@ -23,6 +23,7 @@ erDiagram
     DATA_CONTRACT {
         string id PK "Data Contract unique identifier"
         date created_at_utc "Creation date"
+        date updatd_at_utc "Last modification date"
     }
 
     DATA_CONTRACT_VERSION {
@@ -35,6 +36,8 @@ erDiagram
         string version_number FK "Ref: DATA_CONTRACT_VERSION"
         string ref_standard "Data Contract standard (dcs, odcs, etc.)"
         string contract_uri "Link to this data contract instance"
+        date created_at_utc "Creation date"
+        date updatd_at_utc "Last modification date"
     }
     
     DATA_CONTRACT_SUBSCRIPTION {
