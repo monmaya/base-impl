@@ -87,9 +87,9 @@ erDiagram
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
     CONTACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (example: data consumer)"
     DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SCHEMA : "Schema section"
-    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_QUALITY : "Quality section"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SLO : "Quality section"
     DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SPECIFICATION : "Specification section"
-    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SLO : "SLO section"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_QUALITY : "SLO section"
 
   ```
 
