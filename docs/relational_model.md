@@ -27,6 +27,7 @@ erDiagram
     DATA_CONTRACT_VERSION {
         string version_number PK "Based on semantic versioning"
         uuid data_contract_id PK "FK -> DATA_CONTRACT"
+        date created_at_utc "Contract version creation date"
         string contract_uri "Link to this data contract version"
     }
 
