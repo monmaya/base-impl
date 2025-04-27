@@ -16,8 +16,9 @@ erDiagram
 
     PORT {
         uuid id PK "Port unique identifier"
-        string name "Port name"
         uuid data_product_id FK "Ref: DATA_PRODUCT"
+        enum type "['input', 'output']"
+        
     }
 
     DATA_CONTRACT {
@@ -32,9 +33,8 @@ erDiagram
     }
 
     DATA_CONTRACT_INSTANCE {
-        uuid instance_id PK "Instance unique identifier"
-        string version_number FK "Ref: DATA_CONTRACT_VERSION"
-        string ref_standard "Data Contract standard (dcs, odcs, etc.)"
+        string version_number PK, FK "Ref: DATA_CONTRACT_VERSION"
+        string ref_standard PK "Data Contract standard (dcs, odcs, etc.)"
         string contract_uri "Link to this data contract instance"
         timestamp created_at_utc "Creation date"
         timestamp updatd_at_utc "Last modification date"
