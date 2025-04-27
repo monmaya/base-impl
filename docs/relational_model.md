@@ -33,8 +33,9 @@ erDiagram
     }
 
     DATA_CONTRACT_INSTANCE {
-        string version_number PK, FK "Ref: DATA_CONTRACT_VERSION"
-        string ref_standard PK "Data Contract standard (dcs, odcs, etc.)"
+        uuid contract_instance_id PK
+        string version_number UK, FK "Ref: DATA_CONTRACT_VERSION"
+        string ref_standard UK "Data Contract standard (dcs, odcs, etc.)"
         string contract_uri "Link to this data contract instance"
         timestamp created_at_utc "Creation date"
         timestamp updatd_at_utc "Last modification date"
@@ -51,6 +52,10 @@ erDiagram
         uuid id PK "User unique identifier"
         string email "User email"
         string team
+    }
+
+    CONTRACT_BLOC_1 {
+    
     }
 
 
