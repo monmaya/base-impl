@@ -9,7 +9,7 @@ erDiagram
     DATA_PRODUCT {
         uuid id PK "Data product unique identifier"
         string description "Description of the data product"
-        uuid owner_id "Product owner id"
+        uuid contact_id FK "Ref: CONTACT"
         date created_at_utc "Creation date"
         date updatd_at_utc "Last modification date"
     }
@@ -34,13 +34,13 @@ erDiagram
     }
     
     DATA_CONTRACT_SUBSCRIPTION {
-        uuid user_id PK, FK "Ref: DATA_CONTRACT"
         uuid data_contract_id PK, FK "Ref: DATA_CONTRACT"
+        uuid contact_id PK, FK "Ref: CONTACT"
         date start_date_utc "Subscription start date"
         date end_date_utc "Subscription start date"
     }
 
-    USER {
+    CONTACT {
         uuid id PK "User unique identifier"
         string email "User email"
         string team
