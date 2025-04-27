@@ -7,7 +7,7 @@
 erDiagram
 
     DATA_PRODUCT {
-        uuid PK "Data product nique identifier"
+        uuid id PK "Data product nique identifier"
         string description "Description of the data product"
         uuid owner_id "FK -> USER"
         date created_at_utc "Creation date"
@@ -15,13 +15,13 @@ erDiagram
     }
 
     PORT {
-        uuid PK "Port unique identifier"
+        uuid id PK "Port unique identifier"
         string name "Port name"
         uuid data_product_id "FK -> DATA_PRODUCT"
     }
 
     DATA_CONTRACT {
-        uuid PK "Data contract unique identifier"
+        uuid id PK "Data contract unique identifier"
     }
 
     DATA_CONTRACT_VERSION {
@@ -31,7 +31,7 @@ erDiagram
     }
 
     USER {
-        uuid PK "User unique identifier"
+        uuid id PK "User unique identifier"
         string email "Email of the user"
         string team "Team of the user"
     }
@@ -39,8 +39,8 @@ erDiagram
     DATA_CONTRACT_SUBSCRIPTION {
         uuid user_id PK "FK -> DATA_CONTRACT"
         uuid data_contract_id PK "FK -> DATA_CONTRACT"
-        date start_date
-        date end_date 
+        date start_date_utc "Subscription start date"
+        date end_date_utc "Subscription start date"
     }
 
     DATA_PRODUCT ||--o{ PORT : "Product delivered in n ports"
