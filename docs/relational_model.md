@@ -30,11 +30,11 @@ erDiagram
         string contract_uri "Link to this data contract version"
     }
 
-    USER {
-        uuid id PK "User unique identifier"
-        string email "Email of the user"
-        string team "Team of the user"
-    }
+#    USER {
+#        uuid id PK "User unique identifier"
+#        string email "Email of the user"
+#        string team "Team of the user"
+#    }
     
     DATA_CONTRACT_SUBSCRIPTION {
         uuid user_id PK "FK -> DATA_CONTRACT"
@@ -47,7 +47,7 @@ erDiagram
     PORT ||--o{ DATA_CONTRACT : "Composed of n Data Contracts"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_VERSION : "Contract versions"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
-    USER ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
+#    USER ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
 
   ```
 
