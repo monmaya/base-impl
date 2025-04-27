@@ -23,6 +23,7 @@ erDiagram
 
     DATA_CONTRACT {
         string id PK "Data Contract unique identifier"
+        uuid port_id FK "Ref: PORT"
         timestamp created_at_utc "Creation date"
         timestamp updatd_at_utc "Last modification date"
     }
