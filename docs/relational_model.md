@@ -7,7 +7,7 @@
 erDiagram
 
     DATA_PRODUCT {
-        uuid id PK "Data product nique identifier"
+        uuid id PK "Data product unique identifier"
         string description "Description of the data product"
         uuid owner_id "FK -> USER"
         date created_at_utc "Creation date"
@@ -21,8 +21,7 @@ erDiagram
     }
 
     DATA_CONTRACT {
-        string id PK """Data contract identifier
-                            (unique when composed with version_number)"""
+        string id PK "Contract identifier (unique composed with version_number)"
         string version_number PK "Based on semantic versioning"
         date created_at_utc "Contract version creation date"
     }
