@@ -47,11 +47,11 @@ erDiagram
     }
 
     DATA_PRODUCT ||--o{ PORT : "Product delivered in n ports"
-    DATA_PRODUCT ||--o{ USER : "Product Owner"
+    DATA_PRODUCT ||--o{ CONTACT : "Product Owner"
     PORT ||--o{ DATA_CONTRACT : "Composed of n data contracts"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
-    USER ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (example: data consumer)"
+    CONTACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (example: data consumer)"
 
 
   ```
