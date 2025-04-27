@@ -55,16 +55,28 @@ erDiagram
     }
 
     CONTRACT_SCHEMA {
-        uuid contract_instance_id FK    
+        uuid id PK    
+        string schema_uri "Link to the schema document"
+        timestamp created_at_utc "Creation date"
+        timestamp updatd_at_utc "Last modification date"
     }
     CONTRACT_QUALITY {
-        uuid contract_instance_id FK    
+        uuid id PK    
+        string quality_uri "Link to the quality document"
+        timestamp created_at_utc "Creation date"
+        timestamp updatd_at_utc "Last modification date"
     }
     CONTRACT_SPECIFICATION {
-        uuid contract_instance_id FK    
+        uuid id PK    
+        string schema_uri "Link to the specification document"
+        timestamp created_at_utc "Creation date"
+        timestamp updatd_at_utc "Last modification date"
     }
     CONTRACT_SLO {
-        uuid contract_instance_id FK    
+        uuid id PK    
+        string schema_uri "Link to the slo document"
+        timestamp created_at_utc "Creation date"
+        timestamp updatd_at_utc "Last modification date"
     }
 
 
