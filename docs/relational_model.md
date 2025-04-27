@@ -27,15 +27,10 @@ erDiagram
         timestamp updatd_at_utc "Last modification date"
     }
 
-    DATA_CONTRACT_VERSION {
-        string data_contract_id PK, FK "Ref: DATA_CONTRACT"
-        string version_number PK "Based on semantic versioning"
-    }
-
     DATA_CONTRACT_INSTANCE {
-        uuid contract_instance_id PK
-        string version_number UK, FK "Ref: DATA_CONTRACT_VERSION"
-        string ref_standard UK "Data Contract standard (dcs, odcs, etc.)"
+        string data_contract_id PK, FK "Ref: DATA_CONTRACT"
+        string version_number PK
+        string ref_standard PK "Data Contract standard (dcs, odcs, etc.)"
         uuid schema_id FK "Ref: CONTRACT_SCHEMA"
         uuid quality_id FK "Ref: CONTRACT_QUALITY"
         uuid specification_id FK "Ref: CONTRACT_SPECIFICATION"
@@ -88,8 +83,7 @@ erDiagram
     DATA_PRODUCT ||--o{ PORT : "Product delivered in n ports"
     DATA_PRODUCT ||--o{ CONTACT : "Product Owner"
     PORT ||--o{ DATA_CONTRACT : "Composed of n data contracts"
-    DATA_CONTRACT ||--o{ DATA_CONTRACT_VERSION : "Contract versions"
-    DATA_CONTRACT_VERSION ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
+    DATA_CONTRACT ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
     CONTACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (example: data consumer)"
     DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_SCHEMA : "Schema section"
