@@ -53,14 +53,6 @@ erDiagram
         string team
     }
 
-    EVENT_LOG {
-        uuid id PK "Event unique identifier"
-        enum event_type "'subscribe', 'publish', etc."
-        string data_contract_id FK "Ref: DATA_CONTRACT"
-        uuid contact_id FK "Ref: CONTACT"
-        timestamp event_time_utc "Event time"
-        json details "Event details"
-    }
 
     DATA_PRODUCT ||--o{ PORT : "Product delivered in n ports"
     DATA_PRODUCT ||--o{ CONTACT : "Product Owner"
@@ -70,6 +62,14 @@ erDiagram
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
     CONTACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (example: data consumer)"
 
+    EVENT_LOG {
+        uuid id PK "Event unique identifier"
+        enum event_type "'subscribe', 'publish', etc."
+        string data_contract_id FK "Ref: DATA_CONTRACT"
+        uuid contact_id FK "Ref: CONTACT"
+        timestamp event_time_utc "Event time"
+        json details "Event details"
+    }
 
   ```
 
