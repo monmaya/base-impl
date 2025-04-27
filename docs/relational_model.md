@@ -21,21 +21,18 @@ erDiagram
     }
 
     DATA_CONTRACT {
-        string id PK "Contract identifier (composed with version_number)"
-        string version_number PK "Based on semantic versioning"
+        string id PK "Data Contract unique identifier"
         date created_at_utc "Creation date"
     }
 
-    DATA_CONTRACT_INSTANCE {
-        uuid data_contract_id PK, FK "Ref: DATA_CONTRACT"
-        string version_number PK, FK "Ref: DATA_CONTRACT"
-        string ref_standard "Data Contract standard (dcs, odcs, etc.)"
-        string contract_uri "Link to this data contract instance"
+    DATA_CONTRACT_VERSION {
+        string data_contract_id PK, FK "Ref: DATA_CONTRACT"
+        string version_number PK "Based on semantic versioning"
     }
 
-    DATA_CONTRACT_SUBINSTANCE {
-        uuid data_contract_id PK, FK "Ref: DATA_CONTRACT"
-        string version_number PK, FK "Ref: DATA_CONTRACT"
+    DATA_CONTRACT_INSTANCE {
+        uuid instance_id PK "Instance unique identifier"
+        string version_number FK "Ref: DATA_CONTRACT_VERSION"
         string ref_standard "Data Contract standard (dcs, odcs, etc.)"
         string contract_uri "Link to this data contract instance"
     }
@@ -57,8 +54,8 @@ erDiagram
     DATA_PRODUCT ||--o{ CONTACT : "Product Owner"
     PORT ||--o{ DATA_CONTRACT : "Composed of n data contracts"
     CONTACT ||--o{ DATA_CONTRACT : "Data contract owner"
-    DATA_CONTRACT ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
-    DATA_CONTRACT_INSTANCE ||--o{ DATA_CONTRACT_SUBINSTANCE : "Contract subinstances"
+    DATA_CONTRACT ||--o{ DATA_CONTRACT_VERSION : "Contract versions"
+    DATA_CONTRACT_VERSION ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
     CONTACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (example: data consumer)"
 
