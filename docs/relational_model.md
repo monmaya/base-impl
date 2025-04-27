@@ -21,16 +21,17 @@ erDiagram
     }
 
     DATA_CONTRACT {
-        uuid id PK "Data contract unique identifier"
-    }
-
-    DATA_CONTRACT_VERSION {
+        string id PK "Data contract identifier (unique when composed with version_number)"
         string version_number PK "Based on semantic versioning"
-        uuid data_contract_id PK "FK -> DATA_CONTRACT"
         date created_at_utc "Contract version creation date"
-        string contract_uri "Link to this data contract version"
     }
 
+    DATA_CONTRACT_INSTANCE {
+        uuid data_contract_id PK "FK -> DATA_CONTRACT"
+        string version_number PK "FK -> DATA_CONTRACT"
+        string data_contract_standard "dcs, odcs, etc."
+        string contract_uri "Link to this data contract instance"
+    }
     
     DATA_CONTRACT_SUBSCRIPTION {
         uuid user_id PK "FK -> DATA_CONTRACT"
@@ -39,9 +40,10 @@ erDiagram
         date end_date_utc "Subscription start date"
     }
 
+
     DATA_PRODUCT ||--o{ PORT : "Product delivered in n ports"
-    PORT ||--o{ DATA_CONTRACT : "Composed of n Data Contracts"
-    DATA_CONTRACT ||--o{ DATA_CONTRACT_VERSION : "Contract versions"
+    PORT ||--o{ DATA_CONTRACT : "Composed of n data contracts"
+    DATA_CONTRACT ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes"
 
 
