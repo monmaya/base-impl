@@ -9,7 +9,7 @@ erDiagram
     DATA_PRODUCT {
         uuid id PK "Data product unique identifier"
         string description "Description of the data product"
-        uuid owner_id FK "Ref: USER"
+        uuid owner_id "Product owner id"
         date created_at_utc "Creation date"
         date updatd_at_utc "Last modification date"
     }
@@ -40,8 +40,13 @@ erDiagram
         date end_date_utc "Subscription start date"
     }
 
+    USER {
+        uuid id PK "User unique identifier"
+        string email "User email"
+    }
 
     DATA_PRODUCT ||--o{ PORT : "Product delivered in n ports"
+    DATA_PRODUCT ||--o{ USER : "Product Owner"
     PORT ||--o{ DATA_CONTRACT : "Composed of n data contracts"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes"
