@@ -32,6 +32,13 @@ erDiagram
         string ref_standard "Data Contract standard (dcs, odcs, etc.)"
         string contract_uri "Link to this data contract instance"
     }
+
+    DATA_CONTRACT_SUBINSTANCE {
+        uuid data_contract_id PK, FK "Ref: DATA_CONTRACT"
+        string version_number PK, FK "Ref: DATA_CONTRACT"
+        string ref_standard "Data Contract standard (dcs, odcs, etc.)"
+        string contract_uri "Link to this data contract instance"
+    }
     
     DATA_CONTRACT_SUBSCRIPTION {
         uuid data_contract_id PK, FK "Ref: DATA_CONTRACT"
@@ -51,6 +58,7 @@ erDiagram
     PORT ||--o{ DATA_CONTRACT : "Composed of n data contracts"
     CONTACT ||--o{ DATA_CONTRACT : "Data contract owner"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
+    DATA_CONTRACT_INSTANCE ||--o{ DATA_CONTRACT_SUBINSTANCE : "Contract subinstances"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
     CONTACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (example: data consumer)"
 
