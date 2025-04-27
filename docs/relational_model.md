@@ -9,7 +9,7 @@ erDiagram
     DATA_PRODUCT {
         uuid id PK "Data product unique identifier"
         string description "Description of the data product"
-        uuid owner_id "FK -> USER"
+        uuid owner_id FK "Ref: USER"
         date created_at_utc "Creation date"
         date updatd_at_utc "Last modification date"
     }
@@ -17,7 +17,7 @@ erDiagram
     PORT {
         uuid id PK "Port unique identifier"
         string name "Port name"
-        uuid data_product_id "FK -> DATA_PRODUCT"
+        uuid data_product_id FK "Ref: DATA_PRODUCT"
     }
 
     DATA_CONTRACT {
