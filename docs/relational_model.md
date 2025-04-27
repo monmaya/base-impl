@@ -51,7 +51,7 @@ erDiagram
     PORT ||--o{ DATA_CONTRACT : "Composed of n data contracts"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
-    USER ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Consumer notified on contract changes"
+    USER ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (ex: data consumer)"
 
 
   ```
