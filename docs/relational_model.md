@@ -41,7 +41,7 @@ erDiagram
     DATA_PRODUCT ||--o{ PORT : "Product delivered in n ports"
     PORT ||--o{ DATA_CONTRACT : "Composed of n Data Contracts"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_VERSION : "Contract versions"
-    DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Subscription to a data contract"
+    DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Subscribed to data contract changes"
 
 
   ```
