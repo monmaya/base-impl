@@ -55,7 +55,16 @@ erDiagram
     }
 
     CONTRACT_BLOC_1 {
-    
+        uuid contract_instance_id FK    
+    }
+    CONTRACT_BLOC_2 {
+        uuid contract_instance_id FK    
+    }
+    CONTRACT_BLOC_3 {
+        uuid contract_instance_id FK    
+    }
+    CONTRACT_BLOC_4 {
+        uuid contract_instance_id FK    
     }
 
 
@@ -66,6 +75,11 @@ erDiagram
     DATA_CONTRACT_VERSION ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : ""
     CONTACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes (example: data consumer)"
+
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_BLOC_1 : "Contract instances"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_BLOC_2 : "Contract instances"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_BLOC_3 : "Contract instances"
+    DATA_CONTRACT_INSTANCE ||--o{ CONTRACT_BLOC_4 : "Contract instances"
 
 
   ```
