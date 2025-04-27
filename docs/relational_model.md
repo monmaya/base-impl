@@ -27,7 +27,7 @@ erDiagram
     }
 
     DATA_CONTRACT_INSTANCE {
-        uuid data_contract_id PK "FK -> DATA_CONTRACT"
+        uuid data_contract_id PK, FK "FK -> DATA_CONTRACT"
         string version_number PK "FK -> DATA_CONTRACT"
         string ref_standard "Data Contract standard (dcs, odcs, etc.)"
         string contract_uri "Link to this data contract instance"
