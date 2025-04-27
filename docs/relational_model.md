@@ -43,6 +43,7 @@ erDiagram
     USER {
         uuid id PK "User unique identifier"
         string email "User email"
+        string team
     }
 
     DATA_PRODUCT ||--o{ PORT : "Product delivered in n ports"
@@ -50,6 +51,7 @@ erDiagram
     PORT ||--o{ DATA_CONTRACT : "Composed of n data contracts"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_INSTANCE : "Contract instances"
     DATA_CONTRACT ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes"
+    USER ||--o{ DATA_CONTRACT_SUBSCRIPTION : "Notified on contract changes"
 
 
   ```
