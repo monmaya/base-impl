@@ -31,10 +31,10 @@ erDiagram
         string data_contract_id PK, FK "Ref: DATA_CONTRACT"
         string version_number PK
         string ref_standard PK "Data Contract standard (dcs, odcs, etc.)"
-        uuid schema_id FK "Ref: CONTRACT_SCHEMA"
-        uuid quality_id FK "Ref: CONTRACT_QUALITY"
-        uuid specification_id FK "Ref: CONTRACT_SPECIFICATION"
-        uuid slo_id FK "Ref: CONTRACT_SLO"
+        uuid schema_id FK "Ref: CONTRACT_INSTANCE_SCHEMA"
+        uuid quality_id FK "Ref: CONTRACT_INSTANCE_QUALITY"
+        uuid specification_id FK "Ref: CONTRACT_INSTANCE_SPECIFICATION"
+        uuid slo_id FK "Ref: CONTRACT_INSTANCE_SLO"
     }
     
     DATA_CONTRACT_SUBSCRIPTION {
