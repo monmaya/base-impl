@@ -2,6 +2,23 @@ Data-related referential management service - Base implementation
 =================================================================
 
 # Table of Content (ToC)
+* [Overview](#overview)
+* [References](#references)
+  * [MonMaya](#monmaya)
+  * [Data products](#data-products)
+  * [Data contracts](#data-contracts)
+* [Getting started](#getting-started)
+  * [Features](#features)
+  * [Accessing OpenAPI](#accessing-openapi)
+  * [Database management](#database-management)
+    * [Explore the content of the database](#explore-the-content-of-the-database)
+    * [Bootstrap the database](#bootstrap-the-database)
+* [Installation](#installation)
+  * [PostgreSQL](#postgresql)
+    * [Quick setup for the use cases](#quick-setup-for-the-use-cases)
+    * [Create a database and associated user](#create-a-database-and-associated-user)
+      * [Monmaya database and user](#monmaya-database-and-user)
+    * [Import files, create and browse tables](#import-files-create-and-browse-tables)
 
 # Overview
 [This project](https://github.com/monmaya/base-impl) is a reference implementation
