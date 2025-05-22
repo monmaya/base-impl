@@ -2,10 +2,6 @@ Data-related referential management service - Base implementation
 =================================================================
 
 # Table of Content (ToC)
-* [Overview](#overview)
-* [References](#references)
-  * [Data products](#data-products)
-  * [Data contracts](#data-contracts)
 
 # Overview
 [This project](https://github.com/monmaya/base-impl) is a reference implementation
@@ -50,13 +46,25 @@ This project provides a RESTful API service with OpenAPI documentation.
 - Interactive docs: http://localhost:8020/docs
 - OpenAPI JSON: http://localhost:8020/openapi.json
 
+## Database management
+
+### Explore the content of the database
+* Browse all the records:
+```bash
+psql -h $PG_SVR -U monmaya -f db-explore/explore-all-in-one.sql
+```
+
+### Bootstrap the database
+* Bootstrap the database:
+```bash
+./db-loader/loader-pg.sh
+```
+
 # Installation
 1. Install dependencies: `pip install -r requirements.txt`
 2. Run the server: `uvicorn main:app --reload --port 8020`
 
-# Setup
-
-### PostgreSQL
+## PostgreSQL
 
 ### Quick setup for the use cases
 * Specify a few environment variables
